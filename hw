@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace drinks
+{
+
+	interface IDrinkable 
+	{
+		void drinkHalf();
+		void drinkQuarter();
+		int getMililiter();
+
+	}
+	interface IProduct
+	{
+		string getname();
+		int getprice();
+
+	}
+	class BottleOfBear : IProduct, IDrinkable
+	{
+		int size = 500;
+		int price = 20;
+		public void drinkHalf()
+		{
+			Console.WriteLine($"You only drank half your order, you have to pay {price /2} ");
+		}
+
+		public void drinkQuarter()
+		{
+			Console.WriteLine($"You only drank quarter your order, you have to pay {price / 4} ");
+		}
+
+		public int getMililiter()
+		{
+			return(size);
+		}
+
+		public string getname()
+		{
+			return ("beer");
+		}
+
+		public int getprice()
+		{
+			return (price);
+		}
+	}
+	class EinGeditBottle : IProduct, IDrinkable
+	{
+		int price = 10;
+		int size = 1000;
+		public void drinkHalf()
+		{
+			Console.WriteLine($"You only drank half your order, you have to pay {price / 2} ");
+		}
+
+		public void drinkQuarter()
+		{
+			Console.WriteLine($"You only drank quarter your order, you have to pay {price / 4} ");
+		}
+
+		public int getMililiter()
+		{
+			return ( size);
+		}
+
+		public string getname()
+		{
+			return ("EinGedi");
+		}
+
+		public int getprice()
+		{
+			return (price);
+		}
+	}
+}
+**************************
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace drinks
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            BottleOfBear mybeer = new BottleOfBear();
+            mybeer.drinkHalf();
+            mybeer.drinkQuarter();
+            EinGeditBottle mybootel = new EinGeditBottle();
+            Console.WriteLine($"{mybootel.getMililiter()} ml");
+            mybootel.getname();
+        }
+    }
+}
+
